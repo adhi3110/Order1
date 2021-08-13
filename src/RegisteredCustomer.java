@@ -11,6 +11,12 @@ public class RegisteredCustomer extends Customer{
         this.registrationFees = registrationFees;
     }
 
+    public double TotalOrderValue() {
+        double Total = super.TotalOrderValue();
+        Total -= Total*discount/100;
+        return Total;
+    }
+
     public int getDiscount() {
         return discount;
     }

@@ -11,6 +11,15 @@ public class Customer {
         this.name = name;
     }
 
+    public double TotalOrderValue() {
+        double Total =0;
+        for(Order o:orders)
+        {
+            Total += o.getOrderValue();
+        }
+        return Total;
+    }
+
     public int getId() {
         return id;
     }

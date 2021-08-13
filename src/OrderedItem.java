@@ -8,6 +8,8 @@ public class OrderedItem {
         this.item = item;
     }
 
+    public double getOrderedItemValue(){return  quantity*item.getRate();}
+
     public int getQuantity() {
         return quantity;
     }

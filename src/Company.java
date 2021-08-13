@@ -40,7 +40,7 @@ public class Company {
         return items;
     }
 
-    public double getTotalWorthOfOrderPlaced(){
+    public double getTotalWorthOfOrderPlaced1(){
         double sum = 0;
         for(int i=0;i<customers.size();i++)
         {
@@ -56,7 +56,23 @@ public class Company {
                     tempsum += temp1.getQuantity() * temp1.getItem().getRate();
                 }
             }
+            if (c instanceof RegisteredCustomer)
+            {
+                RegisteredCustomer cust = (RegisteredCustomer) c;
+                tempsum = tempsum * (100 - cust.getDiscount())/100  ;
+            }
+            sum += tempsum;
         }
-        return 0;
+        return sum;
     }
+
+    public double getTotalWorthOfOrderPlaced2(){
+        double sum = 0;
+        for(Customer c:customers)
+        {
+            sum += c.TotalOrderValue();
+        }
+        return sum;
+    }
+
 }
